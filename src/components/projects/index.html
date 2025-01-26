@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-sans antialiased bg-gray-100 flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <div id="navbar"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <section id="projects" class="p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Projects Section</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project Card 1 -->
+                <div class="bg-white border rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
+                    <img src="https://media.discordapp.net/attachments/1301165198815789157/1333106110550376488/image.png?ex=6797af50&is=67965dd0&hm=1cb2900bdd024c0e2818b326643415c451cb68abc8a469618986afce4f8ae9c6&=&format=webp&quality=lossless&width=1202&height=676"
+                        alt="Project 1" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Project 1 สถาที่ท่องเที่ยวชลบุรี</h3>
+                        <p class="text-sm text-gray-600 mb-2">ไฮไลท์สถาที่ท่องเที่ยวของจังหวัดชลบุรี</p>
+                        <p class="text-xs text-gray-500 mb-4">เทคโนโลยีที่ใช้: HTML, CSS</p>
+                        <a href="https://github.com/66160244/homework" target="_blank"
+                            class="text-blue-600 hover:underline text-sm">GitHub</a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-white border rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
+                    <img src="https://media.discordapp.net/attachments/1301165198815789157/1333106336191479829/image.png?ex=6797af86&is=67965e06&hm=8f382ce479b514bec4778f44730beb91d6c5b0311ac8345196e0767c718f443e&=&format=webp&quality=lossless&width=1202&height=676"
+                        alt="Project 2" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Project 2 เว็ปไซต์จังหวัดนครราชสีมา</h3>
+                        <p class="text-sm text-gray-600 mb-2">เว็ปไซต์จังหวัดนครราชสีมา</p>
+                        <p class="text-xs text-gray-500 mb-4">เทคโนโลยีที่ใช้: HTML, CSS</p>
+                        <a href="https://github.com/PeerapatWannaphan/66160009_HomeWork" target="_blank"
+                            class="text-blue-600 hover:underline text-sm">GitHub</a>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="bg-white border rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
+                    <img src="https://media.discordapp.net/attachments/1301165198815789157/1333106779541733376/image.png?ex=6797aff0&is=67965e70&hm=c5fc30eb50ff9f8e74158c969007a79042c7773caaf7e18c9349ff8fa73fca3c&=&format=webp&quality=lossless&width=1202&height=676"
+                        alt="Project 3" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Project 3 แกลเลอรี่รูปภาพ</h3>
+                        <p class="text-sm text-gray-600 mb-2">แกลเลอรี่รูปภาพ</p>
+                        <p class="text-xs text-gray-500 mb-4">เทคโนโลยีที่ใช้: HTML, CSS</p>
+                        <a href="https://github.com/66160245/wekk4-grid-lab" target="_blank"
+                            class="text-blue-600 hover:underline text-sm">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+        async function loadComponent(url, targetId) {
+            try {
+                const response = await fetch(url);
+                if (response.ok) {
+                    const html = await response.text();
+                    document.getElementById(targetId).innerHTML = html;
+                } else {
+                    console.error(`Error: ${url} could not be loaded.`);
+                }
+            } catch (error) {
+                console.error(`Error loading ${url}:`, error);
+            }
+        }
+
+        // Load all components
+        document.addEventListener('DOMContentLoaded', () => {
+            loadComponent('/src/components/navbar/index.html', 'navbar');
+            loadComponent('/src/components/footer/index.html', 'footer');
+        });
+    </script>
+</body>
+
+</html>
